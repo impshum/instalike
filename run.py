@@ -5,19 +5,20 @@ from time import sleep
 # DO NOT EDIT ABOVE THIS LINE
 
 limit = 1  # How many likes per user each run
-sleep_timer = 3  # In minutes (random/humanised)
+min_sleep = 10  # In seconds
+max_sleep = 20  # In seconds
 
 # To use a proxy use --> 'user:password@ip:port' else use --> None
 insta_accounts = {
     1: {'username': 'XXXX', 'password': 'XXXX', 'proxy': 'user:password@ip:port'},
-    2: {'username': 'XXXX', 'password': 'XXXX', 'proxy': None}
+    2: {'username': 'XXXX', 'password': 'XXXX', 'proxy': None},
+    3: {'username': 'XXXX', 'password': 'XXXX', 'proxy': None},
+    4: {'username': 'XXXX', 'password': 'XXXX', 'proxy': None},
+    5: {'username': 'XXXX', 'password': 'XXXX', 'proxy': None}
 }
 
 # DO NOT EDIT BELOW THIS LINE
 
-sleep_timer = sleep_timer * 60
-min_sleep = sleep_timer - 60
-max_sleep = sleep_timer + 60
 sleep_timer = randint(min_sleep, max_sleep)
 
 
