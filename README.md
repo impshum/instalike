@@ -4,7 +4,7 @@ Reads a list of users from a text file and likes the latest post from each one. 
 
 * Install requirements
 
-    pip install InstagramApi
+      pip install InstagramApi
 
 * Configure the script at the top of run.py 
 
