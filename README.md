@@ -2,7 +2,7 @@
 
 Reads a list of users from a text file and likes the latest post from each one. If there is not a new post it will like the previous post and so on. Multiple accounts and proxies supported.
 
-* Install instagramAPI
+* Install requirements
 
     pip install InstagramApi
 
