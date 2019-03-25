@@ -62,8 +62,8 @@ def main():
                         sleep_timer = randint(min_sleep, max_sleep)
                         print(f'sleeping for {sleep_timer} seconds')
                         sleep(sleep_timer)
-                    except Exception as e:
-                        print(e)
+                    except Exception:
+                        pass
 
 
 if __name__ == '__main__':
