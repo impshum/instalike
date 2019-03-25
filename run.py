@@ -19,8 +19,6 @@ insta_accounts = {
 
 # DO NOT EDIT BELOW THIS LINE
 
-sleep_timer = randint(min_sleep, max_sleep)
-
 
 def get_users():
     with open('users.txt', 'r') as f:
@@ -43,25 +41,29 @@ def main():
             if api.login():
                 print(f'logged in as {api.username}\n')
                 for user in users:
-                    api.searchUsername(user)
-                    info = api.LastJson
-                    username_id = info['user']['pk']
-                    user_posts = api.getUserFeed(username_id)
-                    info = api.LastJson
-                    c = 0
-                    if info['items']:
-                        print(f'liking media by {user}')
-                        for post in info['items']:
-                            if not post['has_liked']:
-                                print(post['pk'])
-                                api.like(post['pk'])
-                                c += 1
-                                if c >= limit:
-                                    break
-                    else:
-                        print(f'no media by {user}')
-                    print(f'sleeping for {sleep_timer} seconds')
-                    sleep(sleep_timer)
+                    try:
+                        api.searchUsername(user)
+                        info = api.LastJson
+                        username_id = info['user']['pk']
+                        user_posts = api.getUserFeed(username_id)
+                        info = api.LastJson
+                        c = 0
+                        if info['items']:
+                            print(f'liking media by {user}')
+                            for post in info['items']:
+                                if not post['has_liked']:
+                                    print(post['pk'])
+                                    api.like(post['pk'])
+                                    c += 1
+                                    if c >= limit:
+                                        break
+                        else:
+                            print(f'no media by {user}')
+                        sleep_timer = randint(min_sleep, max_sleep)
+                        print(f'sleeping for {sleep_timer} seconds')
+                        sleep(sleep_timer)
+                    except Exception as e:
+                        print(e)
 
 
 if __name__ == '__main__':
